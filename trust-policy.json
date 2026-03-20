@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::614007083355:oidc-provider/oidc.eks.ap-south-1.amazonaws.com/id/AC3ADC2BB6B819DC1B282E86D55C4BFB"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.ap-south-1.amazonaws.com/id/AC3ADC2BB6B819DC1B282E86D55C4BFB:sub": "system:serviceaccount:jenkins:jenkins"
+        }
+      }
+    }
+  ]
+}
