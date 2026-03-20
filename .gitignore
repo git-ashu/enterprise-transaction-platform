@@ -1,12 +1,62 @@
+# ----------------------
 # Terraform
+# ----------------------
 .terraform/
 *.tfstate
 *.tfstate.*
 crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
 
-# Terraform lock file optional
+# Optional: ignore lock (if not sharing provider versions)
 # .terraform.lock.hcl
 
-# OS files
+# ----------------------
+# Java / Maven (Spring Boot)
+# ----------------------
+target/
+*.log
+*.class
+*.jar
+*.war
+
+# Maven wrapper logs
+.mvn/wrapper/maven-wrapper.jar
+
+# ----------------------
+# Node / Frontend (future-safe)
+# ----------------------
+node_modules/
+dist/
+
+# ----------------------
+# IDE / Editor
+# ----------------------
+.vscode/
+.idea/
+*.iml
+
+# ----------------------
+# OS Files
+# ----------------------
 .DS_Store
 Thumbs.db
+
+# ----------------------
+# Docker
+# ----------------------
+*.tar
+
+# ----------------------
+# Logs
+# ----------------------
+logs/
+*.log
+
+# ----------------------
+# Misc
+# ----------------------
+.env
+*.swp
