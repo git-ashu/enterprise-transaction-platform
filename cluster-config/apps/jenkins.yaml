@@ -33,9 +33,15 @@ spec:
           containerSecurityContext:
             runAsUser: 0
             allowPrivilegeEscalation: true
-          initContainerEnv:
-            - name: JAVA_OPTS
-              value: "-Djenkins.install.runSetupWizard=false"
+
+          javaOpts: "-Djenkins.install.runSetupWizard=false"
+          installPlugins: []
+          initializeOnce: false
+          overwritePlugins: false
+
+          sidecars:
+            configAutoReload:
+              enabled: false
 
   destination:
     server: https://kubernetes.default.svc
