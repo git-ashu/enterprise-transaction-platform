@@ -16,6 +16,7 @@ spec:
       values: |
         controller:
           serviceType: ClusterIP
+
           admin:
             username: admin
             password: admin123
@@ -23,20 +24,30 @@ spec:
           serviceAccount:
             create: false
             name: jenkins
-          securityContext:
-            runAsUser: 0
-            fsGroup: 0
+
+          # 🔥 disable storage completely
           persistence:
             enabled: false
 
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: jenkins
+          # 🔥 avoid permission issues
+          securityContext:
+            runAsUser: 0
+            fsGroup: 0
 
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+          # 🔥 keep it light
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "512Mi"
 
-    syncOptions:
-      - CreateNamespace=true
+destination:
+  server: https://kubernetes.default.svc
+  namespace: jenkins
+
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+
+  syncOptions:
+    - CreateNamespace=true
